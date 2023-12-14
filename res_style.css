@@ -1,0 +1,60 @@
+/* responsive for iphone 13 */
+@media screen and (max-width: 500px){
+    .testimoni { 
+        max-width: 100%;
+        margin: 20px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .testimoni img {
+        width: 60%;
+        height: 200px;
+    }
+
+   
+
+    .nav-links a{
+        font-size: 12px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    nav li {
+        padding: 4px;
+    }
+
+    nav{
+        flex-direction: column;
+        align-items: flex-start;
+        /* background-color: red; */
+    }
+
+    footer{
+        flex-direction: column;
+        height: auto;
+        padding-left: 20%;
+    }
+
+    .to-hide{
+        display: none;
+    }
+
+    .testimoni-content{
+        width: 90%;
+    }
+
+    .shoes-card{
+        margin-bottom: 40px;
+    }
+
+    .shoes-card img {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        border: 10px solid #d47116;
+        border-radius: 20px;
+    }
+}

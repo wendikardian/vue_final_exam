@@ -1,0 +1,76 @@
+/* media query for iphone xr */
+@media only screen and (max-width: 414px) {
+    nav {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .logo{
+        width: 50px;
+    }
+
+    .testimoni {
+        max-width: 100%;
+        margin: 20px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .testimoni img{
+        width: 80%;
+        height: 200px;
+      
+    }
+
+    .testimoni-content{
+        max-width: 300px;
+    }
+
+    p.mt-20{
+        margin: 0px;
+        margin-top: 50px;
+        max-width: 320px;
+        text-align: justify;
+    }
+
+    ul.nav-links{
+        max-width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .to-hide{
+        display: none;
+    }
+
+    footer{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .footer-content { 
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 50px;
+        margin-left: 70px;
+    }
+
+    .product-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .product-container img{
+        width: 100%;
+        height: 200px;
+    }
+}

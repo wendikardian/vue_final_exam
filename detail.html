@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="another_responsive.css">
+    <title>Hatarika</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h4>Hatarika</h4>
+                
+            </div>
+            <!-- create a menu some of them are a dropdown home, collection (sneakers, slip on boots), brands, sales, login -->
+            <div class="nav-dropdown">
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="to-hide">Collection</a></li>
+                    <li class="dropdown">
+                        <a href="#">Categories</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Sneakers</a></li>
+                            <li><a href="#">Slip On</a></li>
+                            <li><a href="#">Boots</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Brands</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Adidas</a></li>
+                            <li><a href="#">Nike</a></li>
+                            <li><a href="#">Converse</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="to-hide">Sales</a></li>
+                    <li class="login-btn"><a href="#">Login</a></li>
+                </ul>
+            </div>
+            <!-- create hamburger dropdown version -->
+            
+            
+        </nav>
+       
+    </header>
+    <main 
+        class="mt-100"
+    >
+      <h1
+        class="ml-100"
+      >Detail Product</h1>
+      <div class="product-container">
+        <img src="images/allbirds-sneakers-review-tree-runnerjpg.jpg" alt="">
+        <div class="product-desc">
+            <h3 class="orange-color">White Sneakers</h3><br>
+            <h4 class="price-product">Rp. 599.9999</h4><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dicta a doloremque beatae temporibus eveniet molestias, fugit dignissimos labore expedita possimus esse dolorem nostrum animi delectus cum maxime adipisci nesciunt.</p><br><br>
+
+            <h3 class="orange-color">Specification</h3><br>
+            <ul>
+                <li>10 Oz canvas upper material</li>
+                <li>Lightweight rubber outsole</li>
+                <li>Removable insole</li>
+                <li>Machine washable</li>
+                <li>Custom woven label</li>
+            </ul><br>
+
+            <h3 class="orange-color">Size Chart</h3>
+            <!-- create select option for shoes sizing -->
+            <select name="size" id="size">
+                <option value="5">US 5/ UK 4/ EUR 36/ JP 24</option>
+                <option value="6">US 6/ UK 5/ EUR 37/ JP 25</option>
+                <option value="7">US 7/ UK 6/ EUR 38/ JP 26</option>
+                <option value="8">US 8/ UK 7/ EUR 39/ JP 27</option>
+                <option value="9">US 9/ UK 8/ EUR 40/ JP 28</option>
+                <option value="10">US 10/ UK 9/ EUR 41/ JP 29</option>
+                <option value="11">US 11/ UK 10/ EUR 42/ JP 30</option>    
+            </select><br><br>
+
+            <h4>If you can not find you sizes, please kindly input here !</h4>
+            <label for="size" class="label-size">
+                Special Request : 
+                <input name="size" id="size" type="text" placeholder="Input your size here"><br><br>
+            </label>
+            <h3 class="orange-color">Packaging</h3>
+            <!-- create radio for normal, bubble wrap, kotak kayu -->
+            <label for="packaging" class="label-packaging">
+                <input type="radio" name="packaging" id="normal" value="normal">
+                Normal
+            </label>
+            <label for="packaging" class="label-packaging">
+                <input type="radio" name="packaging" id="bubble-wrap" value="bubble-wrap">
+                Bubble Wrap
+            </label>
+            <label for="packaging" class="label-packaging">
+                <input type="radio" name="packaging" id="kotak-kayu" value="kotak-kayu">
+                Kotak Kayu
+            </label><br><br>
+
+            <button class="add-chart">
+                Add to Chart
+            </button>
+        </div>
+      </div>
+      <h1
+        class="ml-100"
+      >Related Product</h1>
+      <div class="related-product">
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+        <div class="product-card">
+            <img src="images/jumbotron.jpg" alt="Shoes 1">
+            <a href="detail.html">Detail</a>
+            <h4>Black Canvas</h4>
+            <p>Rp. 500.000</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h4 class="orange-color"> Our Address</h4>
+            
+            <ul class="contact">
+                <li>123, Jalan Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</li>
+                <li><img src="images/phone.png" alt="">+62 123456789</li>
+                <li><img src="images/mail.webp" alt=""> hatarika@gmail.com <li>
+            </ul>
+        </div>
+        <!-- section hatarika collection -->
+        <div class="footer-content">
+            <h4 class="orange-color">Hatarika Collection</h4>
+            <ul class="collection">
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Slip On</a></li>
+                <li><a href="#">Boots</a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <h4 class="orange-color">Follow Us</h4>
+            <ul class="social-media">
+                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="images/instagram.png" alt=""></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

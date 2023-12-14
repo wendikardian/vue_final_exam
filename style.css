@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-button {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  display: block;
+  padding: 10px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #c99360;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #333;
+  margin-top: 10px;
+}
+
+.dropdown-content li:hover {
+  color: #c99360;
+  background: #111;
+  cursor: pointer;
+}
+
+.dropdown-content li:hover a {
+  color: #c99360;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li {
+  padding: 10px;
+}
+
+.dropdown-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.jumbotron {
+  background-image: url(images/allbirds-sneakers-review-tree-runnerjpg.jpg);
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #d47116;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.login-btn:hover {
+  background-color: #333;
+}
+
+.login-btn a:hover {
+  color: #d47116 !important;
+}
+
+.orange-color {
+  color: #d47116;
+}
+
+.shoes-container {
+  margin-top: 80px;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(images/shoes-icon.png);
+  background-size: 60px;
+}
+
+.shoes-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoes-card img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border: 10px solid #d47116;
+  border-radius: 20px;
+}
+
+.shoes-card a {
+  margin-top: -20px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #d47116;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.shoes-card a:hover {
+  background-color: #333;
+}
+
+.about {
+  margin-top: 80px;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-size: 60px;
+  background-color: #8e8a8a;
+}
+
+.content-about {
+  width: 60%;
+}
+
+.about img {
+  width: 30%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px double #d47116;
+}
+
+.testimoni {
+  margin: 40px 120px;
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px;
+  align-items: center;
+  background-size: 60px;
+  background-color: #01093e;
+}
+
+.testimoni img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 4px solid #d47116;
+  margin-right: 200px;
+}
+
+.testimoni-content {
+  width: 500px;
+  color: white;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+footer {
+  display: flex;
+  background-color: #333;
+  color: white;
+  /* height: 250px; */
+  padding: 30px;
+  justify-content: space-evenly;
+  background-image: url(images/shoes-icon.png);
+  background-size: 70px;
+  /* background-repeat y */
+  background-repeat: repeat-y;
+}
+
+.footer-content {
+  width: 20%;
+}
+
+.footer-content img {
+  width: 30px;
+}
+
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.footer-content li:hover a {
+  color: #d47116;
+}
+
+.social-media {
+  width: 160px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+.ml-100 {
+  margin-left: 100px;
+}
+
+.product-container img {
+  width: 40%;
+  height: 700px;
+  object-fit: cover;
+  margin-right: 100px;
+}
+
+.product-container {
+  margin: 50px;
+  display: flex;
+}
+
+
+.label-size input{
+    border: 1px solid #d47116;
+    border-radius: 5px;
+    padding: 10px;
+    width: 350px;
+    margin-top: 40px;
+}
+
+.label-packaging {
+    margin-right: 30px;
+}
+
+button.add-chart{
+    background-color: #d47116;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+button.add-chart:hover{
+    background-color: #333;
+}
+
+.related-product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 100px;
+}
+
+.product-card {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card a{
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #d47116;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.product-card a:hover{
+    background-color: #333;
+}
+
+.product-card img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid #d47116;
+}
