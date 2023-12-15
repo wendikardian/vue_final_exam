@@ -10,7 +10,7 @@
     <title>Hatarika</title>
 </head>
 
-<body >
+<body>
     <header>
         <nav>
             <div class="logo">
@@ -56,16 +56,38 @@
             <!-- lisr rendering vue for data shoes -->
             <div class="product-card" v-for="shoe in shoes" :key="shoe.id">
                 <img :src="shoe.image" :alt="shoe.name">
-                <a :href="'detail.html?id=' + shoe.id">Detail</a>
+                <a @click.prevent="toggleModal(shoe)">Detail</a>
                 <h4>{{ shoe.name }}</h4>
-                <p 
-                    style="text-decoration: line-through; color: red;"
-                >{{ 'Rp. ' + shoe.price }}</p>
+                <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + shoe.price }}</p>
                 <p>{{ 'Rp. ' + shoe.price_after_discount }}</p>
             </div>
-
-            
         </div>
+        <transition name="modal">
+            <div class="modal" v-if="showModal">
+                <div class="modal-content">
+                    <div class="modal-image">
+                        <img :src="selectedShoe.image" :alt="selectedShoe.name">
+                    </div>
+                    <div class="modal-description">
+                        <h3>{{ selectedShoe.name }}</h3>
+                        <p
+                        style="text-decoration: line-through; color: red;"
+                        >{{ 'Rp. ' + selectedShoe.price }}</p>
+                        <p>{{ 'Rp. ' + selectedShoe.price_after_discount }}</p>
+                        <div class="quantity-input">
+                            <button @click="decreaseQuantity">-</button>
+                            <input type="number" v-model="quantity" min="1">
+                            <button @click="increaseQuantity">+</button>
+                        </div>
+                        <button>Add to cart</button>
+                    </div>
+                </div>
+                <button @click="toggleModal(null)">Close</button>
+            </div>
+        </transition>
+
+
+
     </main>
     <footer>
         <div class="footer-content">

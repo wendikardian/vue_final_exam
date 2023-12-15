@@ -334,3 +334,61 @@ button.add-chart:hover{
     border-radius: 20px;
     border: 1px solid #d47116;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 80%;
+  max-width: 500px;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+}
+
+.modal-image {
+  flex: 1;
+}
+
+.modal-description {
+  flex: 1;
+}
+
+.quantity-input {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-input button {
+  padding: 5px;
+}
+
+.quantity-input input {
+  width: 50px;
+  text-align: center;
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.quantity-input button:first-child {
+  background-color: red;
+  color: white;
+}
+
+.quantity-input button:last-child {
+  background-color: green;
+  color: white;
+}
+
+.modal-description p:first-child {
+  text-decoration: line-through;
+}
