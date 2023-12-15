@@ -306,6 +306,8 @@ button.add-chart:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
+    width: 300px;
 }
 
 .product-card a{
