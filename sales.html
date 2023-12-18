@@ -162,7 +162,7 @@
                       <p>Quantity: {{ item.quantity }}</p>
                       <p>Packaging: {{ item.packaging }}</p>
                       <p>Special Request: {{ item.specialRequest }}</p>
-                      <p>Total Price: {{ item.totalPrice }}</p>
+                      <p>Total Price: Rp .{{ item.totalPrice }}</p>
                     </div>
                     <div class="cart-item-delete">
                       <button @click="deleteItem(item)" class="add-chart" >Delete</button>
@@ -170,8 +170,8 @@
                   </div>
                 </div>
                 <div class="checkout flex" style="gap: 50px; display: flex; align-items: center;">
-                    <h4>Total: {{ total }}</h4>
-                    <button @click="buy"  class="add-chart">Buy</button>
+                    <h4>Total: Rp. {{ total }}</h4>
+                    <button @click="checkout"  class="add-chart">Buy</button>
                   </div>
                 <button 
                 @click="isShowCheckoutModal = false"

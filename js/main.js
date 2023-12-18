@@ -120,9 +120,22 @@ var sales = new Vue({
         this.cart.splice(index, 1);
       }
     },
-    buy() {
-      // Implement your buying logic here
-      console.log('Buying items...');
+    checkout() {
+      let message = 'Hello, I would like to purchase the following items:\n';
+      this.cart.forEach(item => {
+        message += `
+          Item: ${item.name}
+          Size: ${item.size}
+          Quantity: ${item.quantity}
+          Packaging: ${item.packaging}
+          Special Request: ${item.specialRequest}
+          Total Price: Rp. ${item.totalPrice}
+          ------------------------
+        `;
+      });
+      message += `Total: Rp. ${this.total}`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/?text=${encodedMessage}`);
     },
   },
 });
