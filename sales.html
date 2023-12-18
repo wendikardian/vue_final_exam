@@ -11,173 +11,204 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h4>
-                    Hatarika
-                </h4>
+    <div id="app">
+        <header>
+            <nav>
+                <div class="logo">
+                    <h4>
+                        Hatarika
+                    </h4>
+                </div>
+                <!-- create a menu some of them are a dropdown home, collection (sneakers, slip on boots), brands, sales, login -->
+                <div class="nav-dropdown">
+
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#" class="to-hide">Collection</a></li>
+                        <li class="dropdown">
+                            <a href="#">Categories</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">Sneakers</a></li>
+                                <li><a href="#">Slip On</a></li>
+                                <li><a href="#">Boots</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Brands</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">Adidas</a></li>
+                                <li><a href="#">Nike</a></li>
+                                <li><a href="#">Converse</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="sales.html" class="to-hide">Sales</a></li>
+                        <li class="login-btn"><a href="#" v-on:click="showCartModal">Cart ({{cart.length}})</a></li>
+                    </ul>
+                </div>
+                <!-- create hamburger dropdown version -->
+
+
+            </nav>
+
+        </header>
+        <main id="sales">
+            <h1 class="ml-100">Related Product</h1>
+            <div class="related-product">
+                <!-- lisr rendering vue for data shoes -->
+                <div class="product-card" v-for="shoe in shoes" :key="shoe.id">
+                    <img :src="shoe.image" :alt="shoe.name">
+                    <a @click.prevent="toggleModal(shoe)">Detail</a>
+                    <h4>{{ shoe.name }}</h4>
+                    <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + shoe.price }}</p>
+                    <p>{{ 'Rp. ' + shoe.price_after_discount }}</p>
+                </div>
             </div>
-            <!-- create a menu some of them are a dropdown home, collection (sneakers, slip on boots), brands, sales, login -->
-            <div class="nav-dropdown">
-
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#" class="to-hide">Collection</a></li>
-                    <li class="dropdown">
-                        <a href="#">Categories</a>
-                        <ul class="dropdown-content">
-                            <li><a href="#">Sneakers</a></li>
-                            <li><a href="#">Slip On</a></li>
-                            <li><a href="#">Boots</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Brands</a>
-                        <ul class="dropdown-content">
-                            <li><a href="#">Adidas</a></li>
-                            <li><a href="#">Nike</a></li>
-                            <li><a href="#">Converse</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="sales.html" class="to-hide">Sales</a></li>
-                    <li class="login-btn"><a href="#">Login</a></li>
-                </ul>
-            </div>
-            <!-- create hamburger dropdown version -->
-
-
-        </nav>
-
-    </header>
-    <main id="sales">
-        <h1 class="ml-100">Related Product</h1>
-        <div class="related-product">
-            <!-- lisr rendering vue for data shoes -->
-            <div class="product-card" v-for="shoe in shoes" :key="shoe.id">
-                <img :src="shoe.image" :alt="shoe.name">
-                <a @click.prevent="toggleModal(shoe)">Detail</a>
-                <h4>{{ shoe.name }}</h4>
-                <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + shoe.price }}</p>
-                <p>{{ 'Rp. ' + shoe.price_after_discount }}</p>
-            </div>
-        </div>
-        <transition name="modal">
-            <div class="modal" v-if="showModal">
-                <div class="modal-content">
-                    <div class="modal-image">
-                        <img :src="selectedShoe.image" :alt="selectedShoe.name">
-                    </div>
-                    <div class="modal-description">
-                        <h3>{{ selectedShoe.name }}</h3>
-                        <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + selectedShoe.price }}</p>
-                        <p>{{ 'Rp. ' + selectedShoe.price_after_discount }}</p>
-                        <div class="flex">
-                            <label for="size-select" class="size-label">Size</label>
-                            <select v-model="selectedSize" class="size-select">
-                                <option disabled value="">Please select a size</option>
-                                <option v-for="size in selectedShoe.sizes" :key="size">{{ size }}</option>
-                            </select>
+            <transition name="modal">
+                <div class="modal" v-if="showModal">
+                    <div class="modal-content">
+                        <div class="modal-image">
+                            <img :src="selectedShoe.image" :alt="selectedShoe.name">
                         </div>
-
-
-                        <div class="flex">
-                            <label for="quantity-input" class="size-label">Quantity</label>
-                            <div class="quantity-input">
-                                <button @click="decreaseQuantity">-</button>
-                                <input type="number" v-model="quantity" min="1">
-                                <button @click="increaseQuantity">+</button>
+                        <div class="modal-description">
+                            <h3>{{ selectedShoe.name }}</h3>
+                            <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + selectedShoe.price }}</p>
+                            <p>{{ 'Rp. ' + selectedShoe.price_after_discount }}</p>
+                            <div class="flex">
+                                <label for="size-select" class="size-label">Size</label>
+                                <select v-model="selectedSize" class="size-select">
+                                    <option disabled value="">Please select a size</option>
+                                    <option v-for="size in selectedShoe.sizes" :key="size">{{ size }}</option>
+                                </select>
                             </div>
+
+
+                            <div class="flex">
+                                <label for="quantity-input" class="size-label">Quantity</label>
+                                <div class="quantity-input">
+                                    <button @click="decreaseQuantity">-</button>
+                                    <input type="number" v-model="quantity" min="1">
+                                    <button @click="increaseQuantity">+</button>
+                                </div>
+                            </div>
+
+                            <p> If you can not find your sizes, please kindly input here ! </p>
+                            <label for="special-request" class="size-label">Special Request</label>
+                            <br>
+                            <input type="text" id="special-request" v-model="specialRequest" class="special-request"
+                                placeholder="Special Request">
+
+
+                            <label for="packaging-select" class="size-label">Packaging</label>
+                            <div class="packaging-options">
+                                <label>
+                                    <input type="radio" v-model="selectedPackaging" value="Normal">
+                                    Normal
+                                </label>
+                                <label>
+                                    <input type="radio" v-model="selectedPackaging" value="Bubble Wrap">
+                                    Bubble Wrap
+                                </label>
+                                <label>
+                                    <input type="radio" v-model="selectedPackaging" value="Kotak Kayu">
+                                    Kotak Kayu
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="buy-button">
+                                <button class="add-chart" v-on:click="addToCart">Add to cart</button>
+                                <button v-on:click="buyNow" class="add-chart">Buy Now</button>
+                            </div>
+
                         </div>
-
-                        <p> If you can not find your sizes, please kindly input here ! </p>
-                        <label for="special-request" class="size-label">Special Request</label>
-                        <br>
-                        <input type="text" id="special-request" v-model="specialRequest" class="special-request"
-                            placeholder="Special Request">
-
-
-                        <label for="packaging-select" class="size-label">Packaging</label>
-                        <div class="packaging-options">
-                            <label>
-                                <input type="radio" v-model="selectedPackaging" value="Normal">
-                                Normal
-                            </label>
-                            <label>
-                                <input type="radio" v-model="selectedPackaging" value="Bubble Wrap">
-                                Bubble Wrap
-                            </label>
-                            <label>
-                                <input type="radio" v-model="selectedPackaging" value="Kotak Kayu">
-                                Kotak Kayu
-                            </label>
-                        </div>
-                        <hr>
-                        <div class="buy-button">
-                            <button class="add-chart">Add to cart</button>
-                            <button v-on:click="buyNow" class="add-chart">Buy Now</button>
-                        </div>
-
                     </div>
-                </div>
-                <!-- add description -->
-                <div class="description">
-                    <h3>Description</h3>
-                    <p v-text="selectedShoe.description"></p>
-                </div>
-
-                <!-- add 2 column for spesification and size chart -->
-
-                <div class="specification-size-chart">
-                    <div class="column">
-                      <h2>Specification</h2>
-                      <ul>
-                        <li v-for="item in selectedShoe.specifications" :key="item">{{ item }}</li>
-                      </ul>
+                    <!-- add description -->
+                    <div class="description">
+                        <h3>Description</h3>
+                        <p v-text="selectedShoe.description"></p>
                     </div>
-                    <div class="column">
-                      <h2>Size Chart</h2>
-                      <ul>
-                        <li v-for="item in selectedShoe.sizes" :key="item">{{ item }}</li>
-                      </ul>
+
+                    <!-- add 2 column for spesification and size chart -->
+
+                    <div class="specification-size-chart">
+                        <div class="column">
+                            <h2>Specification</h2>
+                            <ul>
+                                <li v-for="item in selectedShoe.specifications" :key="item">{{ item }}</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h2>Size Chart</h2>
+                            <ul>
+                                <li v-for="item in selectedShoe.sizes" :key="item">{{ item }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button @click="toggleModal(null)" class="close-button">Close</button>
+                </div>
+            </transition>
+            <div id="cartModal" class="modal" v-if="isShowCheckoutModal">
+                <h4
+                    style="text-align: center; margin-bottom: 20px; color: #ff8c00; font-size: 20px; font-weight: bold;"
+                >Cart Items</h4>
+                <div class="content">
+                  <br>
+                  <div class="cart-item" v-for="item in cart" :key="item.id">
+                    <div class="cart-item-image">
+                      <img :src="item.image" alt="Product Image">
+                    </div>
+                    <div class="cart-item-info">
+                      <h5>{{ item.name }}</h5>
+                      <p>Size: {{ item.size }}</p>
+                      <p>Quantity: {{ item.quantity }}</p>
+                      <p>Packaging: {{ item.packaging }}</p>
+                      <p>Special Request: {{ item.specialRequest }}</p>
+                      <p>Total Price: {{ item.totalPrice }}</p>
+                    </div>
+                    <div class="cart-item-delete">
+                      <button @click="deleteItem(item)" class="add-chart" >Delete</button>
                     </div>
                   </div>
-                <button @click="toggleModal(null)" class="close-button">Close</button>
+                </div>
+                <div class="checkout flex" style="gap: 50px; display: flex; align-items: center;">
+                    <h4>Total: {{ total }}</h4>
+                    <button @click="buy"  class="add-chart">Buy</button>
+                  </div>
+                <button 
+                @click="isShowCheckoutModal = false"
+                class="close-button">Close</button>
+              </div>
+
+        </main>
+        <footer>
+            <div class="footer-content">
+                <h4 class="orange-color"> Our Address</h4>
+
+                <ul class="contact">
+                    <li>123, Jalan Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</li>
+                    <li><img src="images/phone.png" alt="">+62 123456789</li>
+                    <li><img src="images/mail.webp" alt=""> hatarika@gmail.com
+                    <li>
+                </ul>
             </div>
-        </transition>
-
-
-
-    </main>
-    <footer>
-        <div class="footer-content">
-            <h4 class="orange-color"> Our Address</h4>
-
-            <ul class="contact">
-                <li>123, Jalan Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</li>
-                <li><img src="images/phone.png" alt="">+62 123456789</li>
-                <li><img src="images/mail.webp" alt=""> hatarika@gmail.com
-                <li>
-            </ul>
-        </div>
-        <!-- section hatarika collection -->
-        <div class="footer-content">
-            <h4 class="orange-color">Hatarika Collection</h4>
-            <ul class="collection">
-                <li><a href="#">Sneakers</a></li>
-                <li><a href="#">Slip On</a></li>
-                <li><a href="#">Boots</a></li>
-            </ul>
-        </div>
-        <div class="footer-content">
-            <h4 class="orange-color">Follow Us</h4>
-            <ul class="social-media">
-                <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="images/instagram.png" alt=""></a></li>
-                <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
-            </ul>
-        </div>
-    </footer>
+            <!-- section hatarika collection -->
+            <div class="footer-content">
+                <h4 class="orange-color">Hatarika Collection</h4>
+                <ul class="collection">
+                    <li><a href="#">Sneakers</a></li>
+                    <li><a href="#">Slip On</a></li>
+                    <li><a href="#">Boots</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h4 class="orange-color">Follow Us</h4>
+                <ul class="social-media">
+                    <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/instagram.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
     <script src="js/main.js">
 
     </script>

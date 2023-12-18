@@ -1,5 +1,5 @@
 var sales = new Vue({
-  el: "#sales",
+  el: "#app",
   data: {
     // create data product with array of object there is name shoes, price (in rupiah), price_after_discount, image
     shoes: [
@@ -69,7 +69,14 @@ var sales = new Vue({
     quantity: 1,
     selectedSize: null,
     specialRequest: '',
-    selectedPackaging: null
+    selectedPackaging: null,
+    cart : [],
+    isShowCheckoutModal : false
+  },
+  computed: {
+    total() {
+      return this.cart.reduce((sum, item) => sum + item.totalPrice, 0);
+    },
   },
   methods: {
     toggleModal(shoe) {
@@ -90,6 +97,32 @@ var sales = new Vue({
       let message = `Hello, saya ingin memesan \nProduk: ${this.selectedShoe.name}\nUkuran: ${this.selectedSize}\nSpecial Request: ${this.specialRequest}\nPackaging: ${this.selectedPackaging}\n\nTerimakasih.`;
       let whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
       window.location.href = whatsappUrl;
-    }
+    }, 
+    addToCart() {
+      // this.cart.push(this.selectedShoe);
+      // also add size selected, quantity, special request, packaging
+      this.selectedShoe.size = this.selectedSize;
+      this.selectedShoe.quantity = this.quantity;
+      this.selectedShoe.specialRequest = this.specialRequest;
+      this.selectedShoe.packaging = this.selectedPackaging;
+      this.selectedShoe.totalPrice = this.selectedShoe.price_after_discount * this.quantity;
+      this.selectedShoe.id = this.cart.length;
+      this.cart.push(this.selectedShoe);
+
+      console.log(this.cart);
+    },
+    showCartModal() {
+      this.isShowCheckoutModal = true;
+    },
+    deleteItem(item) {
+      const index = this.cart.indexOf(item);
+      if (index > -1) {
+        this.cart.splice(index, 1);
+      }
+    },
+    buy() {
+      // Implement your buying logic here
+      console.log('Buying items...');
+    },
   },
 });
