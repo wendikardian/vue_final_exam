@@ -343,6 +343,7 @@ button.add-chart:hover {
   padding: 20px;
   border: 1px solid #ccc;
   width: 80%;
+  min-height: 80%;
   z-index: 1000;
 }
 
@@ -472,6 +473,7 @@ button {
 .specification-size-chart {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .specification-size-chart .column {

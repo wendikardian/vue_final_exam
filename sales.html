@@ -130,14 +130,18 @@
 
                 <div class="specification-size-chart">
                     <div class="column">
-                        <h2>Specification</h2>
-                        <p>This is the specification of the product...</p>
+                      <h2>Specification</h2>
+                      <ul>
+                        <li v-for="item in selectedShoe.specifications" :key="item">{{ item }}</li>
+                      </ul>
                     </div>
                     <div class="column">
-                        <h2>Size Chart</h2>
-                        <p>This is the size chart of the product...</p>
+                      <h2>Size Chart</h2>
+                      <ul>
+                        <li v-for="item in selectedShoe.sizes" :key="item">{{ item }}</li>
+                      </ul>
                     </div>
-                </div>
+                  </div>
                 <button @click="toggleModal(null)" class="close-button">Close</button>
             </div>
         </transition>
