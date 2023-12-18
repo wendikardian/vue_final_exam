@@ -70,19 +70,45 @@
                     </div>
                     <div class="modal-description">
                         <h3>{{ selectedShoe.name }}</h3>
-                        <p
-                        style="text-decoration: line-through; color: red;"
-                        >{{ 'Rp. ' + selectedShoe.price }}</p>
+                        <p style="text-decoration: line-through; color: red;">{{ 'Rp. ' + selectedShoe.price }}</p>
                         <p>{{ 'Rp. ' + selectedShoe.price_after_discount }}</p>
-                        <div class="quantity-input">
-                            <button @click="decreaseQuantity">-</button>
-                            <input type="number" v-model="quantity" min="1">
-                            <button @click="increaseQuantity">+</button>
+                        <div class="flex">
+                            <label for="size-select" class="size-label">Size</label>
+                            <select v-model="selectedSize" class="size-select">
+                                <option disabled value="">Please select a size</option>
+                                <option v-for="size in selectedShoe.sizes" :key="size">{{ size }}</option>
+                            </select>
                         </div>
+
+
+                        <div class="flex">
+                            <label for="quantity-input" class="size-label">Quantity</label>
+                            <div class="quantity-input">
+                                <button @click="decreaseQuantity">-</button>
+                                <input type="number" v-model="quantity" min="1">
+                                <button @click="increaseQuantity">+</button>
+                            </div>
+                        </div>
+
+                        <p> If you can not find your sizes, please kindly input here ! </p>
+                        <label for="special-request" class="size-label">Special Request</label>
+                        <br>
+                        <input type="text" id="special-request" v-model="specialRequest" class="special-request"
+                            placeholder="Special Request"
+                        >
+
+                        <div class="packaging-options">
+                            <div v-on:click="changePackaging('Normal')" class="packaging-option">Normal</div>
+                            <div v-on:click="changePackaging('Bubble Wrap')" class="packaging-option">Bubble Wrap</div>
+                            <div v-on:click="changePackaging('Kotak Kayu')" class="packaging-option">Kotak Kayu</div>
+
+                          </div>
+
+                        
                         <button>Add to cart</button>
                     </div>
                 </div>
-                <button @click="toggleModal(null)">Close</button>
+                <button @click="toggleModal(null)" class="close-button">Close</button>
             </div>
         </transition>
 

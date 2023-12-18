@@ -350,14 +350,14 @@ button.add-chart:hover{
 .modal-content {
   display: flex;
 }
-
+/* 
 .modal-image {
   flex: 1;
 }
 
 .modal-description {
   flex: 1;
-}
+} */
 
 .quantity-input {
   display: flex;
@@ -374,8 +374,35 @@ button.add-chart:hover{
 }
 
 .modal-image img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 300px;
+  max-height: 400px;
+  margin-right: 100px;
+}
+
+button { 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.close-button {
+  color: black;
+  /* make it absolute in top right */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button:hover { 
+  background-color: #333;
+  color: white;
+}
+
+.quantity-input button {
+  margin: 0 5px;
+  padding: 5px;
 }
 
 .quantity-input button:first-child {
@@ -390,4 +417,36 @@ button.add-chart:hover{
 
 .modal-description p:first-child {
   text-decoration: line-through;
+}
+
+.size-select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.size-label {
+  display: inline-block;
+  color: #d47116;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 40px;
+}
+
+.flex { 
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.special-request {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
 }
