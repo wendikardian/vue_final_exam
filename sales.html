@@ -94,18 +94,48 @@
                         <label for="special-request" class="size-label">Special Request</label>
                         <br>
                         <input type="text" id="special-request" v-model="specialRequest" class="special-request"
-                            placeholder="Special Request"
-                        >
+                            placeholder="Special Request">
 
+
+                        <label for="packaging-select" class="size-label">Packaging</label>
                         <div class="packaging-options">
-                            <div v-on:click="changePackaging('Normal')" class="packaging-option">Normal</div>
-                            <div v-on:click="changePackaging('Bubble Wrap')" class="packaging-option">Bubble Wrap</div>
-                            <div v-on:click="changePackaging('Kotak Kayu')" class="packaging-option">Kotak Kayu</div>
+                            <label>
+                                <input type="radio" v-model="selectedPackaging" value="Normal">
+                                Normal
+                            </label>
+                            <label>
+                                <input type="radio" v-model="selectedPackaging" value="Bubble Wrap">
+                                Bubble Wrap
+                            </label>
+                            <label>
+                                <input type="radio" v-model="selectedPackaging" value="Kotak Kayu">
+                                Kotak Kayu
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="buy-button">
+                            <button class="add-chart">Add to cart</button>
+                            <button v-on:click="buyNow" class="add-chart">Buy Now</button>
+                        </div>
 
-                          </div>
+                    </div>
+                </div>
+                <!-- add description -->
+                <div class="description">
+                    <h3>Description</h3>
+                    <p v-text="selectedShoe.description"></p>
+                </div>
 
-                        
-                        <button>Add to cart</button>
+                <!-- add 2 column for spesification and size chart -->
+
+                <div class="specification-size-chart">
+                    <div class="column">
+                        <h2>Specification</h2>
+                        <p>This is the specification of the product...</p>
+                    </div>
+                    <div class="column">
+                        <h2>Size Chart</h2>
+                        <p>This is the size chart of the product...</p>
                     </div>
                 </div>
                 <button @click="toggleModal(null)" class="close-button">Close</button>
