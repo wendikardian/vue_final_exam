@@ -344,7 +344,6 @@ button.add-chart:hover{
   padding: 20px;
   border: 1px solid #ccc;
   width: 80%;
-  max-width: 500px;
   z-index: 1000;
 }
 
